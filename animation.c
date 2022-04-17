@@ -61,10 +61,9 @@ int	animation(t_game *game)
 		game->img.p = mlx_xpm_file_to_image(game->mlx, "./img/p2.xpm", &x, &y);
 	else
 		game->img.p = mlx_xpm_file_to_image(game->mlx, "./img/p.xpm", &x, &y);
-	if (game->k >= 60)
-		game->k = 0;
-	render_map(game);
 	game->k++;
+	if (game->k >= 61)
+		game->k = 0;
 	if (game->z >= 1 && game->z <= 1000)
 		animation_enemy_right(game);
 	if (game->z >= 1001 && game->z <= 2000)

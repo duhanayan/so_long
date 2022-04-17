@@ -114,7 +114,6 @@ int	main(int argc, char **argv)
 		return (0);
 	game.mlx_win = mlx_new_window(game.mlx, game.w, game.h, "so_long");
 	images(&game);
-	render_map(&game);
 	mlx_hook(game.mlx_win, 2, (1L << 0), walk, &game);
 	mlx_hook(game.mlx_win, 17, 0, close_frame, &game);
 	mlx_loop_hook(game.mlx, animation, &game);
