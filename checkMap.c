@@ -17,24 +17,24 @@ int	check_elements(char *str)
 	int		i;
 	int		x;
 	int		y;
-	char	depo[3];
+	char	tmp[3];
 
 	i = 0;
 	x = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == 'P' && !ft_strchr(depo, 'P'))
-			depo[x++] = str[i];
-		else if (str[i] == 'C' && !ft_strchr(depo, 'C'))
-			depo[x++] = str[i];
-		else if (str[i] == 'E' && !ft_strchr(depo, 'E'))
-			depo[x++] = str[i];
-		else if (str[i] == 'W' && !ft_strchr(depo, 'W'))
-			depo[x++] = str[i];
+		if (str[i] == 'P' && !ft_strchr(tmp, 'P'))
+			tmp[x++] = str[i];
+		else if (str[i] == 'C' && !ft_strchr(tmp, 'C'))
+			tmp[x++] = str[i];
+		else if (str[i] == 'E' && !ft_strchr(tmp, 'E'))
+			tmp[x++] = str[i];
+		else if (str[i] == 'W' && !ft_strchr(tmp, 'W'))
+			tmp[x++] = str[i];
 		i++;
 	}
-	depo[x] = '\0';
-	y = ft_strlen(depo);
+	tmp[x] = '\0';
+	y = ft_strlen(tmp);
 	if (y != 4)
 		return (0);
 	return (1);
@@ -79,7 +79,7 @@ int	check_shape(t_game *game)
 	if (x == y)
 		return (0);
 	i = 0;
-	while (game->map[i] && i < row_count(game->map_dosya) - 1)
+	while (game->map[i] && i < row_count(game->map_file) - 1)
 	{
 		if (ft_strlen(game->map[i]) != ft_strlen(game->map[i + 1]))
 			return (0);
@@ -88,16 +88,16 @@ int	check_shape(t_game *game)
 	return (1);
 }
 
-int	check_units(char *mapDosya)
+int	check_units(char *map_file)
 {
 	int	i;
 
 	i = 0;
-	while (mapDosya[i] != '\0')
+	while (map_file[i] != '\0')
 	{
-		if (mapDosya[i] != '0' && mapDosya[i] != '1' && mapDosya[i] != 'P'
-			&& mapDosya[i] != 'E' && mapDosya[i] != 'C' && mapDosya[i] != 'W'
-			&& mapDosya[i] != '\n')
+		if (map_file[i] != '0' && map_file[i] != '1' && map_file[i] != 'P'
+			&& map_file[i] != 'E' && map_file[i] != 'C' && map_file[i] != 'W'
+			&& map_file[i] != '\n')
 			return (0);
 		i++;
 	}
@@ -108,15 +108,15 @@ int	check_map(t_game *game)
 {
 	if (!game->map)
 		return (invalid_map());
-	if (!check_elements(game->map_dosya))
+	if (!check_elements(game->map_file))
 		return (invalid_map());
 	if (!check_borders(game))
 		return (invalid_map());
 	if (!check_shape(game))
 		return (invalid_map());
-	if (!check_units(game->map_dosya))
+	if (!check_units(game->map_file))
 		return (invalid_map());
-	if (!check_p(game->map_dosya))
+	if (!check_p(game->map_file))
 		return (invalid_map());
 	return (1);
 }

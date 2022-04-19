@@ -56,12 +56,10 @@ typedef struct s_game
 	char		**map;
 	void		*mlx;
 	void		*mlx_win;
-	char		*map_dosya;
-	int			c_sayisi;
+	char		*map_file;
 	int			x;
 	int			y;
 	int			z;
-	int			k;
 	int			moves;
 
 }	t_game;

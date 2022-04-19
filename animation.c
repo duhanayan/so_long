@@ -22,7 +22,7 @@ void	animation_enemy_right(t_game *game)
 	{
 		if (game->map[game->enemy.row][game->enemy.column + 1] == 'P')
 		{
-			printf("You Lost!\n");
+			ft_printf("You Lost!\n");
 			close_frame(game);
 		}
 		game->map[game->enemy.row][game->enemy.column] = '0';
@@ -42,7 +42,7 @@ void	animation_enemy_left(t_game *game)
 	{
 		if (game->map[game->enemy.row][game->enemy.column - 1] == 'P')
 		{
-			printf("You Lost!\n");
+			ft_printf("You Lost!\n");
 			close_frame(game);
 		}
 		game->map[game->enemy.row][game->enemy.column] = '0';
@@ -57,17 +57,16 @@ int	animation(t_game *game)
 	int	x;
 	int	y;
 
-	if (game->k >= 30 && game->k <= 60)
-		game->img.p = mlx_xpm_file_to_image(game->mlx, "./img/p2.xpm", &x, &y);
-	else
-		game->img.p = mlx_xpm_file_to_image(game->mlx, "./img/p.xpm", &x, &y);
-	game->k++;
-	if (game->k >= 61)
-		game->k = 0;
 	if (game->z >= 1 && game->z <= 1000)
+	{
+		game->img.p = mlx_xpm_file_to_image(game->mlx, "./img/p2.xpm", &x, &y);
 		animation_enemy_right(game);
+	}
 	if (game->z >= 1001 && game->z <= 2000)
+	{
+		game->img.p = mlx_xpm_file_to_image(game->mlx, "./img/p.xpm", &x, &y);
 		animation_enemy_left(game);
+	}
 	render_map(game);
 	if (game->z >= 2001)
 		game->z = 0;

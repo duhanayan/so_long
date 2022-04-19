@@ -26,9 +26,9 @@ char	**read_map(t_game *game, char *yol)
 	path = open(yol, O_RDONLY);
 	if (path == -1)
 		return (0);
-	game->map_dosya = get_next_line(path);
-	game->map = ft_split(game->map_dosya, '\n');
-	game -> h = row_count(game->map_dosya) * 64;
+	game->map_file = get_next_line(path);
+	game->map = ft_split(game->map_file, '\n');
+	game -> h = row_count(game->map_file) * 64;
 	game -> w = ft_strlen(game->map[0]) * 64;
 	return (game->map);
 }

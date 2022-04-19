@@ -17,12 +17,12 @@ void	moves_a(t_game *game)
 	if (game->map[game->player.row][game->player.column - 1] == 'E'
 		&& !find_c(game))
 	{
-		printf("You Won!\n");
+		ft_printf("You Won!\n");
 		close_frame(game);
 	}
 	else if (game->map[game->player.row][game->player.column - 1] == 'W')
 	{
-		printf("You Lost!\n");
+		ft_printf("You Lost!\n");
 		close_frame(game);
 	}
 	if (game->map[game->player.row][game->player.column - 1] != '1'
@@ -41,12 +41,12 @@ void	moves_s(t_game *game)
 	if (game->map[game->player.row + 1][game->player.column] == 'E'
 		&& !find_c(game))
 	{
-		printf("You Won!\n");
+		ft_printf("You Won!\n");
 		close_frame(game);
 	}
 	else if (game->map[game->player.row + 1][game->player.column] == 'W')
 	{
-		printf("You Lost!\n");
+		ft_printf("You Lost!\n");
 		close_frame(game);
 	}
 	if (game->map[game->player.row + 1][game->player.column] != '1'
@@ -65,12 +65,12 @@ void	moves_d(t_game *game)
 	if (game->map[game->player.row][game->player.column + 1] == 'E'
 		&& !find_c(game))
 	{
-		printf("You Won!\n");
+		ft_printf("You Won!\n");
 		close_frame(game);
 	}
 	else if (game->map[game->player.row][game->player.column + 1] == 'W')
 	{
-		printf("You Lost!\n");
+		ft_printf("You Lost!\n");
 		close_frame(game);
 	}
 	if (game->map[game->player.row][game->player.column + 1] != '1'
@@ -89,12 +89,12 @@ void	moves_w(t_game *game)
 	if (game->map[game->player.row - 1][game->player.column] == 'E'
 		&& !find_c(game))
 	{
-		printf("You Won!\n");
+		ft_printf("You Won!\n");
 		close_frame(game);
 	}
 	else if (game->map[game->player.row - 1][game->player.column] == 'W')
 	{
-		printf("You Lost!\n");
+		ft_printf("You Lost!\n");
 		close_frame(game);
 	}
 	if (game->map[game->player.row - 1][game->player.column] != '1'
